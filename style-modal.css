@@ -1,0 +1,341 @@
+/* generelt */
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', sans-serif;
+	display: grid;
+	grid-template-columns: repeat(5, 20%);
+	grid-template-rows: repeat(4, 20%);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+img {
+	width: 100%;
+}
+
+p {
+	line-height: 1.5rem;
+}
+
+h1,
+h2,
+h3 {
+	font-family: 'Russo One', sans-serif;
+	text-transform: uppercase;
+}
+
+h1 {
+	font-size: 2rem;
+	letter-spacing: 0.05rem;
+}
+
+h2 {
+	font-size: 1.3rem;
+}
+
+/* Layoutområder */
+
+header {
+	font-family: 'Russo One', sans-serif;
+	background-color: #ff8c00;
+	grid-column-start: 1;
+	grid-column-end: 6;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	display: grid;
+	grid-template-columns: repeat(5, 20%);
+}
+
+header .logosymbol {
+	grid-column-start: 1;
+	grid-column-end: 1;
+	margin: 0 2vw 0 0;
+	line-height: 0;
+}
+
+header .logotext h1 {
+	grid-column-start: 2;
+	grid-column-end: 6;
+	font-size: 6vw;
+	color: #ff0000;
+	white-space: nowrap;
+	margin: 5vw 0 0;
+	padding: 0;
+}
+
+nav {
+	grid-column-start: 1;
+	grid-column-end: 6;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	padding: 3vw 0 0 3vw;
+}
+
+main {
+	grid-column-start: 1;
+	grid-column-end: 6;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+main h1 {
+	margin-left: 3vw;
+}
+
+.data-container {
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.data-pris,
+.modal-pris {
+	font-weight: bold;
+	font-size: 150%;
+}
+
+.data-navn {
+	margin: 0 0 0 2vw;
+}
+
+article {
+	padding: 5vw;
+}
+
+article:nth-child(odd) {
+	background-color: #ffdbb0;
+}
+
+footer {
+	background-color: #606060;
+	grid-column-start: 1;
+	grid-column-end: 6;
+	grid-row-start: 4;
+	grid-row-end: 5;
+	padding: 6vw;
+	color: #fff;
+}
+
+footer .adresse {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	padding: 0 0 5vw;
+}
+
+footer .aabningstider {
+	grid-column-start: 3;
+	grid-column-end: 4;
+	padding: 0 0 5vw;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+/* vis-skjul data */
+
+.data-id {
+	display: none;
+}
+
+.data-kategori {
+	display: none;
+}
+
+.data-langbeskrivelse {
+	display: none;
+}
+
+.data-oprindelsesregion {
+	display: none;
+}
+
+#modal {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.7);
+	text-align: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: 0.5s;
+}
+
+#modal button {
+	width,
+	height: 3vw;
+}
+
+#modal.vis {
+	opacity: 1;
+	pointer-events: all;
+}
+
+.skjul {
+	display: none;
+}
+
+#modal-content {
+	width: 70vw;
+	height: auto;
+	background-color: rgba(255, 255, 255, 1);
+	margin: auto;
+	padding: 1vw 3vw 3vw;
+}
+
+/* media queries */
+
+@media screen and (min-width: 480px) {
+
+	nav {
+		grid-column-start: 2;
+		padding: 3vw 0 0 0;
+	}
+
+	main {
+		grid-column-start: 2;
+		grid-column-end: 5;
+		padding: 0;
+	}
+
+	main h1 {
+		margin-left: 0;
+	}
+
+	.data-container {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+	footer {
+		display: grid;
+		grid-template-columns: repeat(5, 20%);
+		padding: 5vw 0 0;
+	}
+
+	footer .adresse {
+		grid-column-start: 2;
+		grid-column-end: 6;
+		padding: 0 0 5vw;
+	}
+
+	footer .aabningstider {
+		grid-column-start: 2;
+		grid-column-end: 6;
+		grid-row-start: 2;
+		grid-row-end: 3;
+		padding: 0 0 5vw;
+	}
+
+}
+
+@media screen and (min-width: 736px) {
+
+	.data-container {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	article {
+		padding: 3vw;
+	}
+
+	article:nth-child(odd) {
+		background-color: #fff;
+	}
+
+	article:nth-child(4n),
+	article:nth-child(4n+1) {
+		background: #fff;
+	}
+	article:nth-child(4n+2),
+	article:nth-child(4n+3) {
+		background: #ffdbb0;
+	}
+
+}
+
+@media screen and (min-width: 980px) {
+
+	header .logotext h1 {
+		font-size: 4.5vw;
+		margin: 5.5vw 0 0;
+	}
+
+	footer {
+		display: grid;
+		grid-template-columns: repeat(5, 20%);
+		padding: 5vw 0 0;
+	}
+
+	footer .adresse {
+		grid-column-start: 2;
+		grid-column-end: 3;
+		padding: 0 0 5vw;
+	}
+
+	footer .aabningstider {
+		grid-column-start: 3;
+		grid-column-end: 6;
+		grid-row-start: 1;
+		grid-row-end: 2;
+		padding: 0 0 5vw;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+
+	.data-container {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	#modal-content {
+		margin-top: 15vh;
+		padding: 3vw 3vw 3vw;
+		display: grid;
+		grid-template-columns: 66% 33%;
+		grid-template-rows: repeat(10, 10%);
+	}
+
+	#modal img {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		grid-row-start: 1;
+		grid-row-end: 11;
+	}
+
+	#modal .spacer {
+		grid-column-start: 2;
+		grid-column-end: 3;
+		grid-row-start: 6;
+		grid-row-end: 11;
+	}
+
+	#modal .modal-langbeskrivelse {
+		padding: 0 2vw 0;
+	}
+
+	#modal .modal-navn {
+		padding: 0 2vw 0;
+	}
+
+	#modal button {
+		margin: 0 auto;
+
+	}
+
+	article {
+		padding: 2vw;
+	}
+
+	article:nth-child(4n+2),
+	article:nth-child(4n+3) {
+		background: #fff;
+	}
+
+	article:nth-child(odd) {
+		background-color: #ffdbb0;
+	}
+}
